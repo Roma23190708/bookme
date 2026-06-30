@@ -1,0 +1,521 @@
+/* --- Общие стили --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3d7ba;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Шапка --- */
+.site_header {
+    background-color: #2c1810;
+    background-image: url('images/фон.jpg');
+    background-repeat: repeat;
+    background-size: 250px 250px;
+    background-position: 0 0;
+    animation: floatBg 40s linear infinite;
+    padding: 5px 30px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 0;
+    box-shadow: 0 8px 25px rgba(44, 24, 16, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+@keyframes floatBg {
+    0% { background-position: 0 0; }
+    100% { background-position: 400px 400px; }
+}
+
+.site_header h1 {
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-right: 30px;
+}
+
+.site_header a {
+    color: #e5ded1;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: rgba(44, 24, 16, 0.7);
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.site_header a:hover {
+    background-color: #f5e6c8;
+    color: #2c1810;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(245, 230, 200, 0.3);
+}
+
+.site_header a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #f5e6c8;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.site_header a:hover::after {
+    width: 80%;
+}
+
+/* ============================================ */
+/* ВСЕ СЕКЦИИ - ОДНА ЦЕЛАЯ ФОТКА НА ВЕСЬ ЭКРАН */
+/* ============================================ */
+.books-section,
+.books-section1,
+.books-section2,
+.books-section3,
+.books-section4,
+.books-section5,
+.books-section6,
+.books-section7,
+.books-section8 {
+    width: 100%;
+    margin: 0;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+    background-image: url('images/для новинок.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    transition: background-position 0.2s ease-out;
+    border-radius: 0;
+}
+
+/* Затемнение */
+.books-section::before,
+.books-section1::before,
+.books-section2::before,
+.books-section3::before,
+.books-section4::before,
+.books-section5::before,
+.books-section6::before,
+.books-section7::before,
+.books-section8::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(243, 215, 186, 0.3) 0%, rgba(243, 215, 186, 0.5) 50%, rgba(243, 215, 186, 0.7) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.books-section::after,
+.books-section1::after,
+.books-section2::after,
+.books-section3::after,
+.books-section4::after,
+.books-section5::after,
+.books-section6::after,
+.books-section7::after,
+.books-section8::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Контент по центру */
+.books-section > *,
+.books-section1 > *,
+.books-section2 > *,
+.books-section3 > *,
+.books-section4 > *,
+.books-section5 > *,
+.books-section6 > *,
+.books-section7 > *,
+.books-section8 > * {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ============================================ */
+/* ЗАГОЛОВКИ СЕКЦИЙ */
+/* ============================================ */
+.books-section h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #2c1810;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+.books-section1 h2,
+.books-section2 h2,
+.books-section3 h2,
+.books-section4 h2,
+.books-section5 h2,
+.books-section6 h2,
+.books-section7 h2,
+.books-section8 h2 {
+    text-align: center;
+    font-size: 26px;
+    color: #2c1810;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+/* ============================================ */
+/* СЕТКИ КНИГ */
+/* ============================================ */
+.books-grid,
+.books-grid1,
+.books-grid2,
+.books-grid3,
+.books-grid4,
+.books-grid5,
+.books-grid6,
+.books-grid7,
+.books-grid8 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.books-grid6 {
+    font-size: 10px;
+}
+
+.books-grid6 h3 {
+    font-size: 16px;
+}
+
+/* ============================================ */
+/* КАРТОЧКА КНИГИ */
+/* ============================================ */
+.book-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #e8ddd0 0%, #c4b393 100%);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.book-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom right, transparent 60%, rgba(44, 24, 16, 0.1));
+}
+
+.book-card h3 {
+    font-size: 18px;
+    color: #2c1810;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.book-card p {
+    color: #8b7a6a;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.book-card .price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c1810;
+    background-color: #f5e6c8;
+    padding: 8px 25px;
+    border-radius: 30px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .price {
+    transform: scale(1.05);
+}
+
+/* ============================================ */
+/* ЦЕНЫ И СКИДКИ */
+/* ============================================ */
+.price-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.old-price {
+    font-size: 13px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.new-price {
+    font-size: 17px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: #ffeaea;
+    padding: 8px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.skidka p {
+    font-size: 14px;
+    color: #ff4800;
+    letter-spacing: 1px;
+    font-family: 'Arial Black', sans-serif;
+    text-align: left;
+    margin-bottom: 5px;
+    text-decoration: underline wavy;
+    text-underline-offset: 4px;
+    text-decoration-color: #e74c3c;
+}
+
+/* ============================================ */
+/* КНОПКА НАВЕРХ */
+/* ============================================ */
+.scroll-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #2c1810;
+    color: white;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    z-index: 998;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background-color: #f5e6c8;
+    color: #2c1810;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================ */
+/* ССЫЛКИ КАТЕГОРИЙ */
+/* ============================================ */
+.zar, .rus, .mar, .dc , .man{
+    text-align: left;
+    font-size: 20px;
+    color: #2c1810;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.zar a, .rus a, .mar a, .dc a, .man a{
+    color: #2c1810;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.zar a:hover, .rus a:hover, .mar a:hover, .dc a:hover, .man a:hover {
+    background-color: #f5e6c8;
+    color: #2c1810;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(245, 230, 200, 0.3);
+}
+
+.zar a::after, .rus a::after, .mar a::after, .dc a::after, .man a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #7e7562;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.zar a:hover::after, .rus a:hover::after, .mar a:hover::after, .dc a:hover::after, .man a:hover::after {
+    width: 95%;
+}
+
+.mar, .dc , .man {
+    font-family: 'Oswald', sans-serif;
+}
+
+.rus {
+    margin-bottom: 40px;
+}
+
+.books-section4 {
+    margin-top: 67px;
+}
+
+/* ============================================ */
+/* АДАПТИВНОСТЬ */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .books-grid,
+    .books-grid1,
+    .books-grid2,
+    .books-grid3,
+    .books-grid4,
+    .books-grid5,
+    .books-grid6,
+    .books-grid7,
+    .books-grid8 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .book-cover {
+        height: 280px;
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 640px) {
+    .site_header {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        padding: 15px 10px;
+    }
+    .site_header h1 {
+        font-size: 24px;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .site_header a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    .books-grid,
+    .books-grid1,
+    .books-grid2,
+    .books-grid3,
+    .books-grid4,
+    .books-grid5,
+    .books-grid6,
+    .books-grid7,
+    .books-grid8 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    .book-cover {
+        height: 300px;
+    }
+    .books-section h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    .books-section,
+    .books-section1,
+    .books-section2,
+    .books-section3,
+    .books-section4,
+    .books-section5,
+    .books-section6,
+    .books-section7,
+    .books-section8 {
+        padding: 40px 0;
+    }
+}
+
+/* ============================================ */
+/* АНИМАЦИИ */
+/* ============================================ */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
